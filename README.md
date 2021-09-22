@@ -5,7 +5,7 @@ The workflow for gating includes loading and pre-processing of image data (.tif)
 
 ## Dependency
 1. Matlab 2019a or 2019b
-2. The supplied packages in PATH
+2. The supplied packages
 
 ## Usage
 The main.m
