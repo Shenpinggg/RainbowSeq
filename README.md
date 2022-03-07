@@ -28,7 +28,7 @@ Or open the main.m by matlab and run the pannels step by step (this is preferred
 ***Poor mapping (quite different abundance between pixels and cells in the same cluster)***<br> ![image](https://github.com/Shenpinggg/RainbowSeq/blob/820b99da07e7ff9d3e09d5a91b7ade2a3e257e4e/Example/facs_clustering/Test/poor_result.png)<br>
 5. Finally, according to the calculated gates, `edixml2` edits the empty gate file (.xml) as template to generate the gating file used in cell sorting. The final gate file (.xml) could be recognized by the BD FACSDiva software, directly loading all essential gates to the FACS machine.<br>
 Note: the output gate file using this template file may be not recognized due to different versions of software or FACS machine; if so, prepare your own templaate file, do the same editing using `edixml2`.<br>
-The screenshot of cluster_1_final_gating_strategy.csv <br>
-![image](https://github.com/Shenpinggg/RainbowSeq/blob/bbb5695ff8bcc4ac094641babbec62a0ac114cc4/Example/final_gating_strategy_Cluster1.png)
+***The screenshot of cluster_1_final_gating_strategy.csv*** <br>
+![image](https://github.com/Shenpinggg/RainbowSeq/blob/bbb5695ff8bcc4ac094641babbec62a0ac114cc4/Example/final_gating_strategy_Cluster1.png)<br>
 Tips: It would take a long time, if we use all gates provided in gating strategy (.csv) for cell sorting. So we could manually filter the gates. Usually, gates with low purity (contains more cells of other clusters, <80%) and low yield (the proportion of population in its cluster or all clusters) would be excluded. In addition, the gate2 is son gate of parent gate1. You just choose gate2 for sorting in software of FACS machine, only choose gate1 when gate2 is empty. 
 The successful runnning would generate the figures (.png or .fig),  gating strategy (.csv) and final gate file (.xml) shown in working directory `wd`.
