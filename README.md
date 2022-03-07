@@ -5,7 +5,7 @@ The workflow for gating includes loading and pre-processing of image data (.tif)
 
 ## Dependency
 1. Matlab 2019a or 2019b
-2. The supplied packages （note: add them to search path of your matlab)
+2. The supplied packages （note: unzip the codes and add them to search path of your matlab)
 
 ## Usage 
 Here is an example. We provide biofilm image data (.tif), facs data (.fcs) , empty gate file (.xml) and main.m function.
