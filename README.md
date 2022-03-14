@@ -51,7 +51,7 @@ Distance (micrometer) of clusters to biofilm edge `RainbowSeq/Example/image_clus
 View clustered pixels' fluorescence in 3D space `RainbowSeq/Example/image_clustering/Test/visualize3D.png` <br>
 ![image](https://github.com/Shenpinggg/RainbowSeq/blob/92d48e66ae5c5bfb4acd6cafd4b6cc15263f288d/Example/image_clustering/Test/visualize3D.png)
 
-***Map cells to clustered pixels***
+***Map cells to clustered pixels*** <br>
 Fluoresence of cells of different channels detected by FACS `RainbowSeq/Example/facsRawData.csv`
 
 Comparison of distribution between cells from FACS and pixels from image for each channel. For example,`RainbowSeq/Example/facs_clustering/Test/channel_CFP.png` <br>
