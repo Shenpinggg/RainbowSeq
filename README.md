@@ -42,7 +42,14 @@ The yellow bar below specifies the final abundance of each cluster within the re
 5. Finally, according to the calculated gates, `edixml2` edits the empty gate file (.xml) as template to generate the gating file used in cell sorting. The final gate file (.xml) could be recognized by the BD FACSDiva software, directly loading all essential gates to the FACS machine.<br>
 Note: the output gate file using this template file may be not recognized due to different versions of software or FACS machine; if so, prepare your own templaate file, do the same editing using `edixml2`.<br>
 ## Output
-what and organization
+***Image clustering*** <br>
+Clustering mapped to biofilm `mapping_to_biofilm.png` <br>
+![image](https://github.com/Shenpinggg/RainbowSeq/blob/92d48e66ae5c5bfb4acd6cafd4b6cc15263f288d/Example/image_clustering/Test/mapping_to_biofilm.png)
+
+Distance (micrometer) of clusters to biofilm edge `Cluster_mean_dis2edge.txt`<br>
+
+View pixels in 3D fluorescent space `visualize3D.png` <br>
+![image](https://github.com/Shenpinggg/RainbowSeq/blob/92d48e66ae5c5bfb4acd6cafd4b6cc15263f288d/Example/image_clustering/Test/visualize3D.png)
 
 To facilitate the usage of gate file, the program also generates a sereis of .xlsx files to specify the relevant gates for each cluster.
 The .xlsx file is named after cluster_X_final_gating_strategy.csv. N such files will be generated according to the number of groups during k-means clustering of biofilm pixels.
