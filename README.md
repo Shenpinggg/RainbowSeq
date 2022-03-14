@@ -70,8 +70,8 @@ Note: the output gate file using this template file may be not recognized due to
 6. Split stratgy of ***CART tree*** (rawdata of the tree) `RainbowSeq/Example/treeDecision.csv`
 
 7. To facilitate the usage of gate file, the program also generates a sereis of .xlsx files to specify the relevant gates for each cluster.
-The .xlsx file is named after 'cluster_X_final_gating_strategy.csv'. N such files will be generated according to the number of groups during k-means clustering of biofilm pixels.
-The screenshot of cluster_1_final_gating_strategy.csv <br>
+The .xlsx file is named after custer_X_final_gating_strategy.csv N such files will be generated according to the number of groups during k-means clustering of biofilm pixels.
+The screenshot of `RainbowSeq/Example/Cluster1_final_gating_strategy.csv` <br>
 ![image](https://github.com/Shenpinggg/RainbowSeq/blob/bbb5695ff8bcc4ac094641babbec62a0ac114cc4/Example/final_gating_strategy_Cluster1.png)<br>
 These .xlsx files are essential to guide the usage of the gate file (.xml) in cell sorting.
 In each file, we have a series of gates targeting one group of cells. As shown above, each row specify such a (combined) gate.
