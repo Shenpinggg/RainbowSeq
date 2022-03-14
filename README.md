@@ -16,7 +16,9 @@ Configure of FACS file: configureFACS_biofilm.xlsx <br>
 Biofilm: Path of biofilm facs file (biofilm.fcs in example) <br>
 NC: Path of negative control facs file (NC.fcs in example) <br>
 Path: Path stored with figures involved in FACS data overview, FACS calibration and mapping <br>
-Template xml file: Template.xml
+Template xml file: Template.xml export from FACS machine <br>
+
+
 ## Usage 
 Here is an example. We provide biofilm image data (.tif), facs data (.fcs) , empty gate file (.xml) and main.m function.
 ```MATLAB
