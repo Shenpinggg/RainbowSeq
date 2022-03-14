@@ -1,0 +1,2 @@
+Row	cluster_mean_dis_1	cluster_mean_dis_2	cluster_mean_dis_3	cluster_mean_dis_4	cluster_mean_dis_5	cluster_mean_dis_6	cluster_mean_dis_7	cluster_mean_dis_8
+Dis_Center2Edge	-1545.40475294864	-1232.82390085171	-910.088757611256	-669.209760671759	-501.75975830974	-387.911417220081	-215.884544869351	-58.9537017888465
