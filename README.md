@@ -43,15 +43,17 @@ The yellow bar below specifies the final abundance of each cluster within the re
 Note: the output gate file using this template file may be not recognized due to different versions of software or FACS machine; if so, prepare your own templaate file, do the same editing using `edixml2`.<br>
 ## Output
 ***Image clustering*** <br>
-Clustering mapped to biofilm `mapping_to_biofilm.png` <br>
+Clustering mapped to biofilm `RainbowSeq/Example/image_clustering/Test/mapping_to_biofilm.png` <br>
 ![image](https://github.com/Shenpinggg/RainbowSeq/blob/92d48e66ae5c5bfb4acd6cafd4b6cc15263f288d/Example/image_clustering/Test/mapping_to_biofilm.png)
 
-Distance (micrometer) of clusters to biofilm edge `Cluster_mean_dis2edge.txt`<br>
+Distance (micrometer) of clusters to biofilm edge `RainbowSeq/Example/image_clustering/Test/Cluster_mean_dis2edge.txt`<br>
 
-View clustered pixels' fluorescence in 3D space `visualize3D.png` <br>
+View clustered pixels' fluorescence in 3D space `RainbowSeq/Example/image_clustering/Test/visualize3D.png` <br>
 ![image](https://github.com/Shenpinggg/RainbowSeq/blob/92d48e66ae5c5bfb4acd6cafd4b6cc15263f288d/Example/image_clustering/Test/visualize3D.png)
 
 ***Map cells to clustered pixels***
+Fluoresence of cells of different channels detected by FACS `RainbowSeq/Example/facsRawData.csv`
+
 Comparison of distribution between cells from FACS and pixels from image for each channel. For example,`RainbowSeq/Example/facs_clustering/Test/channel_CFP.png` <br>
 ![image](https://github.com/Shenpinggg/RainbowSeq/blob/5e7441d6b68b271eaad44be1f5783c65adb8494e/Example/facs_clustering/Test/channel_CFP.png)
 
@@ -62,6 +64,10 @@ Distribution of mCherry fluorescence between cells from FACS and pixels from ima
 View cells' fluorescence in 3D space with mapped cluster index `RainbowSeq/Example/facs_clustering/Test/visualize3D.png` <br>
 ![image](https://github.com/Shenpinggg/RainbowSeq/blob/5e7441d6b68b271eaad44be1f5783c65adb8494e/Example/facs_clustering/Test/visualize3D.png)
 
+Abundance between pixels and cells in each cluster) `RainbowSeq/Example/facs_clustering/Test/abundance.png`<br> 
+![image](https://github.com/Shenpinggg/RainbowSeq/blob/820b99da07e7ff9d3e09d5a91b7ade2a3e257e4e/Example/facs_clustering/Test/abundance.png)<br>
+
+Split stratgy of ***CART tree*** (rawdata of the tree) `RainbowSeq/Example/treeDecision.csv`
 
 To facilitate the usage of gate file, the program also generates a sereis of .xlsx files to specify the relevant gates for each cluster.
 The .xlsx file is named after 'cluster_X_final_gating_strategy.csv'. N such files will be generated according to the number of groups during k-means clustering of biofilm pixels.
