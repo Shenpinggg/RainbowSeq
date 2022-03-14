@@ -8,6 +8,9 @@ For details about the algorithm, see our paper.
 1. MATLAB 2019a
 2. The scripts in Code directory （note: add these scripts to the PATH of your MATLAB)
 
+## Input files
+what and organization
+
 ## Usage 
 Here is an example. We provide biofilm image data (.tif), facs data (.fcs) , empty gate file (.xml) and main.m function.
 ```MATLAB
@@ -24,11 +27,22 @@ Or open the main.m by matlab and run the pannels step by step (this is preferred
 3. The fluorescence value of cells detected by FACS are extracted from facs file (.fcs) and pre-processed by function `facsMat`. Then each cell could be assigned to one pixel from image by function `facsLabelAssign` (***optimal transport***); group label of the pixel was thus assigned to the corresponding cell. <br>
 4. Then function `Ttree` builds up a ***CART tree*** according to the group labels (label) and fluorescent values (feature) of all cells; next, functions `splitpoint` and `saveTrees2` parse the ***CART tree*** and convert the split boundaries of ***CART tree*** back to raw fluorescent value (raw fluorescent value was normalized by function `facsMat` at previous step). Next, function `calClusterInfo` calculates the metric (purity and yield) of each gate. <br> 
 ***Clusters' Abundance of pixels (IMAGE) and cells (FACS)*** <br> 
+Note that only focus on abundance of pixels (blue bar below) and cells (orange bar below), which suggests the quality of mapping.
+The yellow bar below specifies the final abundance of each cluster within the relevant gates from CART-tree. This metric is sometimes different from the relevant pixel or cell abundance, as the geometry of cells of such cluster in high-dimensional fluorescent space cannot be completely captured by the rectangle gates derived from CART-tree. This does not interfere with the accuracy of the method.
 ***Good mapping (similar abundance between pixels and cells in the same cluster)*** <br> ![image](https://github.com/Shenpinggg/RainbowSeq/blob/820b99da07e7ff9d3e09d5a91b7ade2a3e257e4e/Example/facs_clustering/Test/abundance.png)<br>
 ***Poor mapping (quite different abundance between pixels and cells in the same cluster)***<br> ![image](https://github.com/Shenpinggg/RainbowSeq/blob/820b99da07e7ff9d3e09d5a91b7ade2a3e257e4e/Example/facs_clustering/Test/poor_result.png)<br>
 5. Finally, according to the calculated gates, `edixml2` edits the empty gate file (.xml) as template to generate the gating file used in cell sorting. The final gate file (.xml) could be recognized by the BD FACSDiva software, directly loading all essential gates to the FACS machine.<br>
 Note: the output gate file using this template file may be not recognized due to different versions of software or FACS machine; if so, prepare your own templaate file, do the same editing using `edixml2`.<br>
+## Output
+what and organization
+
+To facilitate the usage of gate file, the program also generates a sereis of .xlsx files to specify the relevant gates for each cluster.
+The .xlsx file is named after cluster_X_final_gating_strategy.csv. N such files will be generated according to the number of groups during k-means clustering of biofilm pixels.
 ***The screenshot of cluster_1_final_gating_strategy.csv*** <br>
 ![image](https://github.com/Shenpinggg/RainbowSeq/blob/bbb5695ff8bcc4ac094641babbec62a0ac114cc4/Example/final_gating_strategy_Cluster1.png)<br>
-Tips: It would take a long time, if we use all gates provided in gating strategy (.csv) for cell sorting. So we could manually filter the gates. Usually, gates with low purity (contains more cells of other clusters, <80%) and low yield (the proportion of population in its cluster or all clusters) would be excluded. In addition, the gate2 is son gate of parent gate1. You just choose gate2 for sorting in software of FACS machine, only choose gate1 when gate2 is empty. 
-The successful runnning would generate the figures (.png or .fig),  gating strategy (.csv) and final gate file (.xml) shown in working directory `wd`.
+These .xlsx files are essential to guide the usage of the gate file (.xml) in cell sorting.
+In each file, we have a series of gates targeting one group of cells. As shown above, each row specify such a (combined) gate.
+Purity suggests the abundance of cells belonging to the desired group among all cells in this gate; yield suggests the abundance of desired cells in this gate among all cells; relative yield suggests the abundance of desired cells in this gate among all cells belonging to this group.
+In some cases, we have gate1 and gate2 in one row. This structure suggests that combining gate1 and gate2 will generate one proper gate for relevant cells. In fact, we have editted the gate file (.xml) to set gate2 as the son gate of gate1 in such cases. Hence, just choose gate2 in FACS software in such cases; if only gate1 is available, choose gate1. For example, we can choose gateX and gateY to sort the group of cells shown in this example.
+Another tip is to manually filter some gates with low purity or yield. This improves both the accuracy of the method and saves time. Usually, gates with low purity (< 80%) and low yield (relative yield < 1%) were excluded.
+
