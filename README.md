@@ -17,7 +17,7 @@ Biofilm: Path of biofilm facs file (biofilm.fcs in example) <br>
 NC: Path of negative control facs file (NC.fcs in example) <br>
 Path: Path stored with figures involved in FACS data overview, FACS calibration and mapping <br>
 Template xml file: `/Example/Template.xml` export from FACS machine <br>
-***Path of above files could be modified in 1st selection of main.m***
+***Path of above files could be modified in 1st section of main.m***
 
 ## Usage 
 Here is an example. We provide biofilm image data (.tif), facs data (.fcs) , empty gate file (.xml) and main.m function.
