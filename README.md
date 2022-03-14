@@ -8,7 +8,7 @@ For details about the algorithm, see our paper.
 1. MATLAB 2019a
 2. The scripts in Code directory （note: add these scripts to the PATH of your MATLAB)
 
-## Input files <br>
+## Input files (in current folder) <br>
 Image files: `/Example/Test-PH/CFP/GFP/mCherry.tif` <br>
 FACS files: `/Example/FACS/NC.fcs` (negative control) & `/Example/FACS/biofilm.fcs` (experiment data) <br>
 Configure of FACS file: `/Example/FACS/configureFACS_biofilm.xlsx` <br>
@@ -17,7 +17,7 @@ Biofilm: Path of biofilm facs file (biofilm.fcs in example) <br>
 NC: Path of negative control facs file (NC.fcs in example) <br>
 Path: Path stored with figures involved in FACS data overview, FACS calibration and mapping <br>
 Template xml file: `/Example/Template.xml` export from FACS machine <br>
-***Path of above files could be modified in 1st section of main.m***
+***Path of above input files could be modified in 1st section of main.m***
 
 ## Usage 
 Here is an example. We provide biofilm image data (.tif), facs data (.fcs) , empty gate file (.xml) and main.m function.
@@ -43,33 +43,22 @@ The yellow bar below specifies the final abundance of each cluster within the re
 Note: the output gate file using this template file may be not recognized due to different versions of software or FACS machine; if so, prepare your own templaate file, do the same editing using `edixml2`.<br>
 ## Output
 ***Image clustering*** <br>
-1. Clustering mapped to biofilm `RainbowSeq/Example/image_clustering/Test/mapping_to_biofilm.png` <br>
-![image](https://github.com/Shenpinggg/RainbowSeq/blob/92d48e66ae5c5bfb4acd6cafd4b6cc15263f288d/Example/image_clustering/Test/mapping_to_biofilm.png)
-
-2. Distance (micrometer) of clusters to biofilm edge `RainbowSeq/Example/image_clustering/Test/Cluster_mean_dis2edge.txt`<br>
-
-3. View clustered pixels' fluorescence in 3D space `RainbowSeq/Example/image_clustering/Test/visualize3D.png` <br>
-![image](https://github.com/Shenpinggg/RainbowSeq/blob/92d48e66ae5c5bfb4acd6cafd4b6cc15263f288d/Example/image_clustering/Test/visualize3D.png)
+Path of folder: `/Example/image_clustering/Test/`
+1. Clustering mapped to biofilm `mapping_to_biofilm.png` <br>
+2. Distance (micrometer) of clusters to biofilm edge `Cluster_mean_dis2edge.txt`<br>
+3. View clustered pixels' fluorescence in 3D space `visualize3D.png` <br>
 
 ***Map cells to clustered pixels*** <br>
+Path of folder: `/Example/facs_clustering/Test/`
 1. Fluoresence of cells of different channels detected by FACS `RainbowSeq/Example/facsRawData.csv`
+2. Distribution of mCherry fluorescence between cells from FACS and pixels from image from each cluster `RainbowSeq/Example/facs_clustering/Test/groupsByHistFACS.png` 
+3. View cells' fluorescence in 3D space with mapped cluster index `visualize3D.png` (The topology of fluorescence from cells and pixels are similar in good mapping) <br>
+4. Abundance between pixels and cells in each cluster `abundance.png`<br> 
 
-2. Comparison of distribution between cells from FACS and pixels from image for each channel. For example,`RainbowSeq/Example/facs_clustering/Test/channel_CFP.png` <br>
-![image](https://github.com/Shenpinggg/RainbowSeq/blob/5e7441d6b68b271eaad44be1f5783c65adb8494e/Example/facs_clustering/Test/channel_CFP.png)
-
-3. Distribution of mCherry fluorescence between cells from FACS and pixels from image from each cluster `RainbowSeq/Example/facs_clustering/Test/groupsByHistFACS.png` `RainbowSeq/Example/facs_clustering/Test/groupsByHistImg.png` (Rank of distributions of each cluster from cells and pixels are quite similar in good mapping)
-![image](https://github.com/Shenpinggg/RainbowSeq/blob/5e7441d6b68b271eaad44be1f5783c65adb8494e/Example/facs_clustering/Test/groupsByHistFACS.png)
-![image](https://github.com/Shenpinggg/RainbowSeq/blob/5e7441d6b68b271eaad44be1f5783c65adb8494e/Example/facs_clustering/Test/groupsByHistImg.png)
-
-4. View cells' fluorescence in 3D space with mapped cluster index `RainbowSeq/Example/facs_clustering/Test/visualize3D.png` (The topology of fluorescence from cells and pixels are similar in good mapping) <br>
-![image](https://github.com/Shenpinggg/RainbowSeq/blob/5e7441d6b68b271eaad44be1f5783c65adb8494e/Example/facs_clustering/Test/visualize3D.png)
-
-5. Abundance between pixels and cells in each cluster `RainbowSeq/Example/facs_clustering/Test/abundance.png`<br> 
-![image](https://github.com/Shenpinggg/RainbowSeq/blob/820b99da07e7ff9d3e09d5a91b7ade2a3e257e4e/Example/facs_clustering/Test/abundance.png)<br>
-
-6. Split stratgy of ***CART tree*** (rawdata of the tree) `RainbowSeq/Example/treeDecision.csv`
-
-7. To facilitate the usage of gate file, the program also generates a sereis of .xlsx files to specify the relevant gates for each cluster.
+***Sorting strategy***
+Path of folder: `/Example/`
+1. Split strategy of ***CART tree*** (rawdata of the tree) `treeDecision.csv`
+2. To facilitate the usage of gate file, the program also generates a sereis of .xlsx files to specify the relevant gates for each cluster.
 The .xlsx file is named after custer_X_final_gating_strategy.csv N such files will be generated according to the number of groups during k-means clustering of biofilm pixels.
 The screenshot of `RainbowSeq/Example/Cluster1_final_gating_strategy.csv` <br>
 ![image](https://github.com/Shenpinggg/RainbowSeq/blob/bbb5695ff8bcc4ac094641babbec62a0ac114cc4/Example/final_gating_strategy_Cluster1.png)<br>
