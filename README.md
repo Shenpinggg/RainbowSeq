@@ -9,8 +9,14 @@ For details about the algorithm, see our paper.
 2. The scripts in Code directory （note: add these scripts to the PATH of your MATLAB)
 
 ## Input files
-what and organization
-
+Image files: Test-PH(CFP, GFP, mCherry).tif <br>
+FACS files: NC.fcs (negative control) & biofilm.fcs (experiment data) <br>
+configure of FACS file: configureFACS_biofilm.xlsx <br>
+![image](https://github.com/Shenpinggg/RainbowSeq/blob/86ff87142df7b3b3be7f856fbe63d99190bbf8b6/Example/FACS/configure_FAS_file.png) <br>
+Biofilm: Path of biofilm facs file (biofilm.fcs in example) <br>
+NC: Path of negative control facs file (NC.fcs in example) <br>
+Path: Path stored with figures involved in FACS data overview, FACS calibration and mapping <br>
+Template xml file: Template.xml
 ## Usage 
 Here is an example. We provide biofilm image data (.tif), facs data (.fcs) , empty gate file (.xml) and main.m function.
 ```MATLAB
