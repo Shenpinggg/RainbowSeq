@@ -11,7 +11,7 @@ For details about the algorithm, see our paper.
 ## Input files
 Image files: Test-PH(CFP, GFP, mCherry).tif <br>
 FACS files: NC.fcs (negative control) & biofilm.fcs (experiment data) <br>
-configure of FACS file: configureFACS_biofilm.xlsx <br>
+Configure of FACS file: configureFACS_biofilm.xlsx <br>
 ![image](https://github.com/Shenpinggg/RainbowSeq/blob/86ff87142df7b3b3be7f856fbe63d99190bbf8b6/Example/FACS/configure_FAS_file.png) <br>
 Biofilm: Path of biofilm facs file (biofilm.fcs in example) <br>
 NC: Path of negative control facs file (NC.fcs in example) <br>
