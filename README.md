@@ -71,11 +71,10 @@ Note: the output gate file using this template file may be not recognized due to
 
 7. To facilitate the usage of gate file, the program also generates a sereis of .xlsx files to specify the relevant gates for each cluster.
 The .xlsx file is named after 'cluster_X_final_gating_strategy.csv'. N such files will be generated according to the number of groups during k-means clustering of biofilm pixels.
-***The screenshot of cluster_1_final_gating_strategy.csv*** <br>
+The screenshot of cluster_1_final_gating_strategy.csv <br>
 ![image](https://github.com/Shenpinggg/RainbowSeq/blob/bbb5695ff8bcc4ac094641babbec62a0ac114cc4/Example/final_gating_strategy_Cluster1.png)<br>
 These .xlsx files are essential to guide the usage of the gate file (.xml) in cell sorting.
 In each file, we have a series of gates targeting one group of cells. As shown above, each row specify such a (combined) gate.
 Purity suggests the abundance of cells belonging to the desired group among all cells in this gate; yield suggests the abundance of desired cells in this gate among all cells; relative yield suggests the abundance of desired cells in this gate among all cells belonging to this group.
 In some cases, we have gate1 and gate2 in one row. This structure suggests that combining gate1 and gate2 will generate one proper gate for relevant cells. In fact, we have editted the gate file (.xml) to set gate2 as the son gate of gate1 in such cases. Hence, just choose gate2 in FACS software in such cases; if only gate1 is available, choose gate1. For example, we can choose gateX and gateY to sort the group of cells shown in this example.
 Another tip is to manually filter some gates with low purity or yield. This improves both the accuracy of the method and saves time. Usually, gates with low purity (< 80%) and low yield (relative yield < 1%) were excluded.
-
