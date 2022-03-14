@@ -64,7 +64,7 @@ Distribution of mCherry fluorescence between cells from FACS and pixels from ima
 View cells' fluorescence in 3D space with mapped cluster index `RainbowSeq/Example/facs_clustering/Test/visualize3D.png` <br>
 ![image](https://github.com/Shenpinggg/RainbowSeq/blob/5e7441d6b68b271eaad44be1f5783c65adb8494e/Example/facs_clustering/Test/visualize3D.png)
 
-Abundance between pixels and cells in each cluster) `RainbowSeq/Example/facs_clustering/Test/abundance.png`<br> 
+Abundance between pixels and cells in each cluster `RainbowSeq/Example/facs_clustering/Test/abundance.png`<br> 
 ![image](https://github.com/Shenpinggg/RainbowSeq/blob/820b99da07e7ff9d3e09d5a91b7ade2a3e257e4e/Example/facs_clustering/Test/abundance.png)<br>
 
 Split stratgy of ***CART tree*** (rawdata of the tree) `RainbowSeq/Example/treeDecision.csv`
