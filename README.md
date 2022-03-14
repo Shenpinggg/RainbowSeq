@@ -48,11 +48,23 @@ Clustering mapped to biofilm `mapping_to_biofilm.png` <br>
 
 Distance (micrometer) of clusters to biofilm edge `Cluster_mean_dis2edge.txt`<br>
 
-View pixels in 3D fluorescent space `visualize3D.png` <br>
+View clustered pixels' fluorescence in 3D space `visualize3D.png` <br>
 ![image](https://github.com/Shenpinggg/RainbowSeq/blob/92d48e66ae5c5bfb4acd6cafd4b6cc15263f288d/Example/image_clustering/Test/visualize3D.png)
 
+***Map cells to clustered pixels***
+Comparison of distribution between cells from FACS and pixels from image for each channel. For example,`RainbowSeq/Example/facs_clustering/Test/channel_CFP.png` <br>
+![image](https://github.com/Shenpinggg/RainbowSeq/blob/5e7441d6b68b271eaad44be1f5783c65adb8494e/Example/facs_clustering/Test/channel_CFP.png)
+
+Distribution of mCherry fluorescence between cells from FACS and pixels from image from each cluster `RainbowSeq/Example/facs_clustering/Test/groupsByHistFACS.png` `RainbowSeq/Example/facs_clustering/Test/groupsByHistImg.png`
+![image](https://github.com/Shenpinggg/RainbowSeq/blob/5e7441d6b68b271eaad44be1f5783c65adb8494e/Example/facs_clustering/Test/groupsByHistFACS.png)
+![image](https://github.com/Shenpinggg/RainbowSeq/blob/5e7441d6b68b271eaad44be1f5783c65adb8494e/Example/facs_clustering/Test/groupsByHistImg.png)
+
+View cells' fluorescence in 3D space with mapped cluster index `RainbowSeq/Example/facs_clustering/Test/visualize3D.png` <br>
+![image](https://github.com/Shenpinggg/RainbowSeq/blob/5e7441d6b68b271eaad44be1f5783c65adb8494e/Example/facs_clustering/Test/visualize3D.png)
+
+
 To facilitate the usage of gate file, the program also generates a sereis of .xlsx files to specify the relevant gates for each cluster.
-The .xlsx file is named after cluster_X_final_gating_strategy.csv. N such files will be generated according to the number of groups during k-means clustering of biofilm pixels.
+The .xlsx file is named after 'cluster_X_final_gating_strategy.csv'. N such files will be generated according to the number of groups during k-means clustering of biofilm pixels.
 ***The screenshot of cluster_1_final_gating_strategy.csv*** <br>
 ![image](https://github.com/Shenpinggg/RainbowSeq/blob/bbb5695ff8bcc4ac094641babbec62a0ac114cc4/Example/final_gating_strategy_Cluster1.png)<br>
 These .xlsx files are essential to guide the usage of the gate file (.xml) in cell sorting.
