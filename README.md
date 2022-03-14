@@ -9,9 +9,9 @@ For details about the algorithm, see our paper.
 2. The scripts in Code directory （note: add these scripts to the PATH of your MATLAB)
 
 ## Input files
-Image files: Test-PH(CFP, GFP, mCherry).tif <br>
-FACS files: NC.fcs (negative control) & biofilm.fcs (experiment data) <br>
-Configure of FACS file: configureFACS_biofilm.xlsx <br>
+Image files: `/Example/Test-PH/CFP/GFP/mCherry.tif` <br>
+FACS files: `/Example/FACS/NC.fcs` (negative control) & `/Example/FACS/biofilm.fcs` (experiment data) <br>
+Configure of FACS file: `/Example/FACS/configureFACS_biofilm.xlsx` <br>
 ![image](https://github.com/Shenpinggg/RainbowSeq/blob/86ff87142df7b3b3be7f856fbe63d99190bbf8b6/Example/FACS/configure_FAS_file.png) <br>
 Biofilm: Path of biofilm facs file (biofilm.fcs in example) <br>
 NC: Path of negative control facs file (NC.fcs in example) <br>
