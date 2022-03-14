@@ -57,11 +57,11 @@ Note: the output gate file using this template file may be not recognized due to
 2. Comparison of distribution between cells from FACS and pixels from image for each channel. For example,`RainbowSeq/Example/facs_clustering/Test/channel_CFP.png` <br>
 ![image](https://github.com/Shenpinggg/RainbowSeq/blob/5e7441d6b68b271eaad44be1f5783c65adb8494e/Example/facs_clustering/Test/channel_CFP.png)
 
-3. Distribution of mCherry fluorescence between cells from FACS and pixels from image from each cluster `RainbowSeq/Example/facs_clustering/Test/groupsByHistFACS.png` `RainbowSeq/Example/facs_clustering/Test/groupsByHistImg.png`
+3. Distribution of mCherry fluorescence between cells from FACS and pixels from image from each cluster `RainbowSeq/Example/facs_clustering/Test/groupsByHistFACS.png` `RainbowSeq/Example/facs_clustering/Test/groupsByHistImg.png` (Rank of distributions of each cluster from cells and pixels are quite similar in good mapping)
 ![image](https://github.com/Shenpinggg/RainbowSeq/blob/5e7441d6b68b271eaad44be1f5783c65adb8494e/Example/facs_clustering/Test/groupsByHistFACS.png)
 ![image](https://github.com/Shenpinggg/RainbowSeq/blob/5e7441d6b68b271eaad44be1f5783c65adb8494e/Example/facs_clustering/Test/groupsByHistImg.png)
 
-4. View cells' fluorescence in 3D space with mapped cluster index `RainbowSeq/Example/facs_clustering/Test/visualize3D.png` <br>
+4. View cells' fluorescence in 3D space with mapped cluster index `RainbowSeq/Example/facs_clustering/Test/visualize3D.png` (The topology of fluorescence from cells and pixels are similar in good mapping) <br>
 ![image](https://github.com/Shenpinggg/RainbowSeq/blob/5e7441d6b68b271eaad44be1f5783c65adb8494e/Example/facs_clustering/Test/visualize3D.png)
 
 5. Abundance between pixels and cells in each cluster `RainbowSeq/Example/facs_clustering/Test/abundance.png`<br> 
