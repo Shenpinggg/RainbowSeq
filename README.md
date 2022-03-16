@@ -1,6 +1,6 @@
 # RainbowSeq
 ## Brief introduction
-MATLAB scripts for automatically compute gating strategy in RainbowSeq.
+MATLAB scripts to automatically compute gating strategy in RainbowSeq.
 The workflow for gating includes loading and pre-processing of image data (.tif) and FACS data (.fcs), clustering of biofilm pixels in image, mapping cells and pixels via "optimal transport", computing gating strategy via "CART tree" and finally constructing the gate file (.xml) for cell sorting.
 For details about the algorithm, see our paper.
 
@@ -9,17 +9,17 @@ For details about the algorithm, see our paper.
 2. The scripts in Code directory （note: add these scripts to the PATH of your MATLAB)
 
 ## Input files (in current folder) <br>
-Image files: `/Example/Test-PH/CFP/GFP/mCherry.tif` <br>
+Image files from several channels (one phase contrast, several fluorescent): `/Example/Test-PH/CFP/GFP/mCherry.tif` <br>
 FACS files: `/Example/FACS/NC.fcs` (negative control) & `/Example/FACS/biofilm.fcs` (experiment data) <br>
 Configure of FACS file: `/Example/FACS/configureFACS_biofilm.xlsx` <br>
 ![image](https://github.com/Shenpinggg/RainbowSeq/blob/86ff87142df7b3b3be7f856fbe63d99190bbf8b6/Example/FACS/configure_FAS_file.png) <br>
 Biofilm: Path of biofilm facs file (biofilm.fcs in example) <br>
 NC: Path of negative control facs file (NC.fcs in example) <br>
-Path: Path stored with figures involved in FACS data overview, FACS calibration and mapping <br>
+Path: Path to store output figures for FACS data overview, FACS calibration and mapping (see Output section) <br>
 Template xml file: `/Example/Template.xml` export from FACS machine <br>
 ***Path of above input files could be modified in 1st section of main.m***
 
-## Usage 
+## Usage
 Here is an example. We provide biofilm image data (.tif), facs data (.fcs) , empty gate file (.xml) and main.m function.
 ```MATLAB
 matlab main.m (with default setting)
@@ -42,21 +42,21 @@ The yellow bar below specifies the final abundance of each cluster within the re
 5. Finally, according to the calculated gates, `edixml2` edits the empty gate file (.xml) as template to generate the gating file used in cell sorting. The final gate file (.xml) could be recognized by the BD FACSDiva software, directly loading all essential gates to the FACS machine.<br>
 Note: the output gate file using this template file may be not recognized due to different versions of software or FACS machine; if so, prepare your own templaate file, do the same editing using `edixml2`.<br>
 ## Output
-***Image clustering*** <br>
+***Image related*** <br>
 Path of folder: `/Example/image_clustering/Test/`
-1. Clustering mapped to biofilm `mapping_to_biofilm.png` <br>
+1. Biofilm segmentation `mapping_to_biofilm.png` <br>
 2. Distance (micrometer) of clusters to biofilm edge `Cluster_mean_dis2edge.txt`<br>
 3. View fluorescence of clustered pixels in 3D space `visualize3D.png` <br>
 
-***Map cells to clustered pixels*** <br>
+***Mapping cells in FACS to pixels in image*** <br>
 Path of folder: `/Example/facs_clustering/Test/`
-1. Fluoresence of cells of different channels detected by FACS `RainbowSeq/Example/facsRawData.csv`
-2. View fluorescence of mapped cells in 3D space  `visualize3D.png` (The topology of fluorescence from cells and pixels are similar in good mapping) <br>
+1. Fluoresences of cells detected by FACS `RainbowSeq/Example/facsRawData.csv`
+2. View fluorescence of mapped cells in 3D space  `visualize3D.png` <br>
 3. Abundance between pixels and cells in each cluster `abundance.png`<br> 
 
-***Sorting strategy***
+***Final sorting strategy***
 Path of folder: `/Example/`
-1. Split strategy of ***CART tree*** (rawdata of the tree) to generate the below gating strategy files `treeDecision.csv`
+1. Boundary information in ***CART tree*** is saved in `treeDecision.csv`, which is used to generate the gating strategy files shown below.
 2. To facilitate the usage of gate file, the program also generates a sereis of .xlsx files to specify the relevant gates for each cluster.
 The .xlsx file is named after custerX_final_gating_strategy.csv, such files will be generated according to the number of groups during k-means clustering of biofilm pixels.
 The screenshot of `RainbowSeq/Example/Cluster1_final_gating_strategy.csv` <br>
@@ -64,5 +64,5 @@ The screenshot of `RainbowSeq/Example/Cluster1_final_gating_strategy.csv` <br>
 3. These .xlsx files are essential to guide the usage of the final gate file (.xml) `/Example/calculated_gate.xml` for cell sorting.
 In each file, we have a series of gates targeting one group of cells. As shown above, each row specify such a (combined) gate.
 Purity suggests the abundance of cells belonging to the desired group among all cells in this gate; yield suggests the abundance of desired cells in this gate among all cells; relative yield suggests the abundance of desired cells in this gate among all cells belonging to this group.
-In some cases, we have gate1 and gate2 in one row. This structure suggests that combining gate1 and gate2 will generate one proper gate for relevant cells. In fact, we have editted the gate file (.xml) to set gate2 as the son gate of gate1 in such cases. Hence, just choose gate2 in FACS software in such cases; if only gate1 is available, choose gate1. For example, we can choose gateX and gateY to sort the group of cells shown in this example.
-Another tip is to manually filter some gates with low purity or yield. This improves both the accuracy of the method and saves time. Usually, gates with low purity (< 80%) and low yield (relative yield < 1%) were excluded.
+In some cases, we have gate1 and gate2 in one row. This structure suggests that combining gate1 and gate2 will generate one proper gate for relevant cells. In fact, we have editted the gate file (.xml) to set gate2 as the son gate of gate1 in such cases. Hence, just choose gate2 in FACS software if so; otherwise, if only gate1 is available, choose gate1.
+Another tip is to manually filter out some gates with low purity or yield. This improves both the accuracy of the method and saves time. Usually, gates with purity < 80% and relative yield < 1% were excluded.
